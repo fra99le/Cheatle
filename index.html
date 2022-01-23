@@ -1,0 +1,68 @@
+<!-- (C) Copyright 2022, Bryan Franklin, All Rights Reserves -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Cheatle</title>
+<meta charset="UTF-8">
+</head>
+
+<body>
+
+<h1 id="instructions">Instructions:</h1>
+<div>
+<ol>
+<li>Enter the current day identifier (easily be obtained from one of your friend's scores).
+<li>Enter the length of the word for the day.
+<li>Enter the maxium number of tried for the day.
+<li>Check the hard mode box, for an extra bit of flair (optional).
+<li>Copy and paste the resulting score string into a social media post.
+</ol>
+</div>
+
+<h1 id="input">Input:</h1>
+<div>
+Day: <input type="text" value="?" id="day" onchange="update()"><br/>
+Word Length: <input type="text" value="5" id="length" onchange="update()"><br/>
+Max Tries: <input type="text" value="6" id="tries" onchange="update()"><br/>
+<input type="checkbox" id="hard_mode" onchange="update()">Hard Mode!
+</div>
+
+<h1 id="score">Score:</h1>
+<div id="scoretext">
+</div>
+
+<script type="text/javascript">
+
+// compute day
+const d = new Date();
+let currDay = d.getTime() / 86400000;
+let dayOne = 18797;
+let day = currDay-dayOne;
+document.getElementById("day").value = parseInt(day, 10);
+
+function update() {
+    let day = document.getElementById("day").value;
+    let length = document.getElementById("length").value;
+    let tries = document.getElementById("tries").value;
+    let hard = document.getElementById("hard_mode").checked;
+    let green_block = '🟩';
+    var score_field = document.getElementById('scoretext');
+
+    score_str = 'Wordle ' + day + ' 1/' + tries;
+    if( hard )
+        score_str += '*';
+    score_str += '<br/>';
+    for(i=0; i<length; ++i) {
+        score_str += green_block;
+    }
+    score_str += '<br/>';
+    console.log('score: '+score_str);
+    score_field.innerHTML = score_str;
+}
+
+update();
+
+</script>
+
+</body>
+</html>
