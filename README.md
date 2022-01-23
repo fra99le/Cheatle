@@ -19,7 +19,7 @@ and just make a simple tool that constructs perfect score strings.
 
 # Instructions
 
-Go to the [score generator]() and enter the day identifier, the word length,
+Go to the [score generator](https://fra99le.github.io/Cheatle/) and enter the day identifier, the word length,
 and maximim tries allowed.  Optionally you can check the hard mode box to get
 the special '\*'.
 
